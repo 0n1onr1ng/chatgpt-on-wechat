@@ -25,7 +25,7 @@ class Banwords(Plugin):
         super().__init__()
         try:
             curdir = os.path.dirname(__file__)
-            config_path = os.path.join(curdir, "config.json")
+            config_path = os.path.join(curdir, "configs.json")
             conf = None
             if not os.path.exists(config_path):
                 conf = {"action": "ignore"}
@@ -36,7 +36,7 @@ class Banwords(Plugin):
                     conf = json.load(f)
             self.searchr = WordsSearch()
             self.action = conf["action"]
-            banwords_path = os.path.join(curdir, "banwords.txt")
+            banwords_path = os.path.join(curdir, "banword.txt")
             with open(banwords_path, "r", encoding="utf-8") as f:
                 words = []
                 for line in f:
